@@ -44,12 +44,12 @@ Antes de executar os testes, certifique-se de que sua máquina possui os seguint
   tests/: Contém os arquivos de teste (.robot) organizados por funcionalidade.
   resources/: Contém os arquivos de suporte, como keywords reutilizáveis e variáveis.
   requirements.txt: Lista de dependências do projeto.
-  ```
-  
-  Cenários de Teste.txt: Lista dos cenários de teste implementados.
+   Cenários de Teste.txt: Lista dos cenários de teste implementados.
+   ``` 
 5. Executando os Testes
    Para executar os testes, utilize o comando abaixo no terminal
-   ```robot -d results tests/
+   ```
+   robot -d results tests/
    -d results: Define o diretório onde os relatórios e logs serão salvos.
    ```
    - tests/: Diretório que contém os arquivos de teste.
