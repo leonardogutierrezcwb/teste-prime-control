@@ -64,7 +64,7 @@ Antes de executar os testes, certifique-se de que sua máquina possui os seguint
    log.html: Log detalhado com informações de cada etapa do teste.
 
 - Contribuindo
-   Contribuições são bem-vindas! Siga os passos abaixo para contribuir:
+   - Contribuições são bem-vindas! Siga os passos abaixo para contribuir:
    - Faça um fork deste repositório.
    - Crie uma branch para sua feature ou correção: git checkout -b minha-feature.
    - Faça commit das suas alterações: git commit -m 'Minha nova feature'.
