@@ -36,15 +36,17 @@ Antes de executar os testes, certifique-se de que sua máquina possui os seguint
    git clone https://github.com/seu-usuario/Teste-Prime.git
    cd Teste-Prime
 2. Instale as dependências do projeto:
-   ```
+   ```bash
    pip install -r requirements.txt
-4. Certifique-se de que o ChromeDriver está configurado no **PATH** do sistema.
-5. Estrutura do Projeto:
-   ```tests/: Contém os arquivos de teste (.robot) organizados por funcionalidade.
-   ```resources/: Contém os arquivos de suporte, como keywords reutilizáveis e variáveis.
+3. Certifique-se de que o ChromeDriver está configurado no **PATH** do sistema.
+4. Estrutura do Projeto:
+   ```
+   tests/: Contém os arquivos de teste (.robot) organizados por funcionalidade.
+   ```
+   resources/: Contém os arquivos de suporte, como keywords reutilizáveis e variáveis.
    requirements.txt: Lista de dependências do projeto.
    Cenários de Teste.txt: Lista dos cenários de teste implementados.
-6. Executando os Testes
+5. Executando os Testes
    Para executar os testes, utilize o comando abaixo no terminal
    robot -d results tests/
    -d results: Define o diretório onde os relatórios e logs serão salvos.
@@ -52,7 +54,7 @@ Antes de executar os testes, certifique-se de que sua máquina possui os seguint
    - Executar um teste específico
    Para executar um teste específico, use o nome do arquivo .robot:
 
-7. Relatórios e Logs
+6. Relatórios e Logs
    Após a execução, os relatórios e logs estarão disponíveis no diretório results/:
    report.html: Relatório detalhado da execução.
    log.html: Log detalhado com informações de cada etapa do teste.
