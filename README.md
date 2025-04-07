@@ -1,4 +1,4 @@
-# Teste-Prime: Automação de Testes com Robot Framework
+# Teste Prime Challenge: Automação de Testes com Robot Framework
 
 Este repositório contém os cenários de teste automatizados para o sistema disponível em [Prime Control Challenge](https://challenge.primecontrol.com.br/). Os testes foram desenvolvidos utilizando o **Robot Framework** e cobrem funcionalidades como criação de contas, login, cadastro de clientes, entre outros.
 
@@ -77,6 +77,7 @@ Antes de executar os testes, certifique-se de que sua máquina possui os seguint
 - APIs
    - A API utilizada para os testes está disponível neste [link](https://api-challenge.primecontrol.com.br/).
    - A documentação da API pode ser encontrada [aqui](https://documenter.getpostman.com/view/30055199/2sAXjDdF3m#intro).
-   - 
+  
 Autor: Leonardo Gutierrez
+
 Nota: Este projeto é apenas para fins de aprendizado e demonstração de automação de testes.
