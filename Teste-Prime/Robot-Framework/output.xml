@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.0 on win32)" generated="2025-04-07T15:18:48.402236" rpa="false" schemaversion="5">
+<suite id="s1" name="CT009 Campos Obrigatorios" source="c:\Users\leonardo.gutierrez\Desktop\Teste-Prime\Robot-Framework\CT009_Campos_Obrigatorios.robot">
+<test id="s1-t1" name="CT009 - Validar preenchimento de campos obrigatórios na aba Perfil" line="11">
+<kw name="Abrir o Navegador" owner="keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:48.625670" level="INFO">Opening browser 'chrome' to base url 'https://challenge.primecontrol.com.br/'.</msg>
+<arg>${URL}</arg>
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-07T15:18:48.625399" elapsed="2.017583"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-04-07T15:18:50.643278" elapsed="0.077642"/>
+</kw>
+<doc>Abre o navegador e maximiza a janela.</doc>
+<status status="PASS" start="2025-04-07T15:18:48.624828" elapsed="2.096755"/>
+</kw>
+<kw name="Acessar Tela de Login" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${XPATH_FAZER_LOGIN}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-07T15:18:50.724092" elapsed="0.038709"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${XPATH_FAZER_LOGIN}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-04-07T15:18:50.763062" elapsed="0.042549"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:50.806253" level="INFO">Clicking element '//a[normalize-space()='Fazer Login']'.</msg>
+<arg>${XPATH_FAZER_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:50.805934" elapsed="0.530695"/>
+</kw>
+<doc>Clica no botão "Criar uma conta" para acessar a tela de cadastro.</doc>
+<status status="PASS" start="2025-04-07T15:18:50.722832" elapsed="0.614070"/>
+</kw>
+<kw name="Preencher Campo de E-mail" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${XPATH_ENTRADA_EMAIL}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-07T15:18:51.338268" elapsed="0.041007"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:51.380178" level="INFO">Typing text 'leonardogutierrezcwb@gmail.com' into text field '//input[@id='floatingInput']'.</msg>
+<arg>${XPATH_ENTRADA_EMAIL}</arg>
+<arg>${EMAIL_VALIDO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:51.379846" elapsed="0.233335"/>
+</kw>
+<doc>Clica no campo de e-mail e insere o e-mail cadastrado.</doc>
+<status status="PASS" start="2025-04-07T15:18:51.337805" elapsed="0.275661"/>
+</kw>
+<kw name="Preencher Campo de Senha" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${XPATH_CAMPO_SENHA}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-07T15:18:51.614770" elapsed="0.024086"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:51.639362" level="INFO">Typing text 'primecontrol2024@' into text field '//input[@id='floatingPassword']'.</msg>
+<arg>${XPATH_CAMPO_SENHA}</arg>
+<arg>${SENHA_VALIDO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:51.639092" elapsed="0.165744"/>
+</kw>
+<doc>Clica no campo de e-mail e insere o e-mail cadastrado.</doc>
+<status status="PASS" start="2025-04-07T15:18:51.614238" elapsed="0.190777"/>
+</kw>
+<kw name="Confirmar Dados de Cadastro" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${XPATH_BOTAO_ACESSAR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-07T15:18:51.805805" elapsed="0.029949"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:51.836520" level="INFO">Clicking element '//button[normalize-space()='Acessar']'.</msg>
+<arg>${XPATH_BOTAO_ACESSAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:51.836124" elapsed="0.097660"/>
+</kw>
+<doc>Preenche os campos de email e senha no formulário de cadastro.</doc>
+<status status="PASS" start="2025-04-07T15:18:51.805444" elapsed="0.128520"/>
+</kw>
+<kw name="Validar Tela de Clientes" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${XPATH_GESTAO_CLIENTES}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-07T15:18:51.934802" elapsed="1.312515"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:53.258782" level="INFO">Current page contains element '//h1[normalize-space()='Gestão de Clientes']'.</msg>
+<arg>${XPATH_GESTAO_CLIENTES}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-04-07T15:18:53.247595" elapsed="0.011398"/>
+</kw>
+<doc>Valida que a página "Gestão de Clientes" foi carregada corretamente após login.</doc>
+<status status="PASS" start="2025-04-07T15:18:51.934488" elapsed="1.324616"/>
+</kw>
+<kw name="Acessar Aba de Cadastro de Cliente" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:53.261043" level="INFO">Clicking element '//a[normalize-space()='Cadastrar Cliente']'.</msg>
+<arg>${XPATH_CADASTRAR_CLIENTE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:53.260655" elapsed="0.077320"/>
+</kw>
+<doc>Acessa a página de cadastro de cliente.</doc>
+<status status="PASS" start="2025-04-07T15:18:53.260038" elapsed="0.078189"/>
+</kw>
+<kw name="Adicionar Imagem" owner="keywords">
+<kw name="Choose File" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:53.340067" level="INFO">Sending C:\Users\leonardo.gutierrez\Desktop\Teste-Prime\Robot-Framework\resources\logo\primecontrol.png to browser.</msg>
+<arg>${XPATH_ADD_IMAGE}</arg>
+<arg>${IMAGEM_CLIENTE}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:53.339640" elapsed="0.050658"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-07T15:18:55.391556" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-07T15:18:53.390624" elapsed="2.001750"/>
+</kw>
+<doc>Faz o upload da imagem utilizando a keyword Choose File.</doc>
+<status status="PASS" start="2025-04-07T15:18:53.339136" elapsed="2.053729"/>
+</kw>
+<kw name="Dados Inválidos" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:55.396529" level="INFO">Typing text '0' into text field '//div[@class='col-md-9']//input[@type='text']'.</msg>
+<arg>${XPATH_NOME_COMPLETO}</arg>
+<arg>0</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:55.395794" elapsed="0.091842"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:55.488345" level="INFO">Typing text '0' into text field '//input[@type='tel']'.</msg>
+<arg>${XPATH_TELEFONE}</arg>
+<arg>0</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:55.488007" elapsed="0.119129"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:55.608150" level="INFO">Typing text '0@teste.fakes' into text field '//input[@type='email']'.</msg>
+<arg>${XPATH_EMAIL}</arg>
+<arg>0@teste.fakes</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:55.607475" elapsed="0.150674"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:55.759143" level="INFO">Typing text '99999-99' into text field '//label[normalize-space()='CEP:']/following-sibling::input[1]'.</msg>
+<arg>${XPATH_CEP}</arg>
+<arg>99999-99</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:55.758691" elapsed="0.116184"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:55.875852" level="INFO">Typing text '0' into text field '//label[normalize-space()='Número da residência:']/following-sibling::input[1]'.</msg>
+<arg>${XPATH_NUMERO_RESIDENCIA}</arg>
+<arg>0</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:55.875403" elapsed="0.093970"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:55.969863" level="INFO">Typing text '0' into text field '//label[normalize-space()='Endereço:']/following-sibling::input[1]'.</msg>
+<arg>${XPATH_ENDERECO}</arg>
+<arg>0</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:55.969615" elapsed="0.087401"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:56.057816" level="INFO">Typing text '0' into text field '//label[normalize-space()='Complemento:']/following-sibling::input[1]'.</msg>
+<arg>${XPATH_COMPLEMENTO}</arg>
+<arg>0</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:56.057367" elapsed="0.093999"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:56.152005" level="INFO">Clicking element '//select[@class='form-control']'.</msg>
+<arg>${XPATH_PAIS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:56.151688" elapsed="0.053864"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${XPATH_PAIS_BRASIL}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-07T15:18:56.206051" elapsed="0.028263"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:56.234934" level="INFO">Clicking element '//option[normalize-space()='Brasil']'.</msg>
+<arg>${XPATH_PAIS_BRASIL}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:56.234634" elapsed="0.036716"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:56.271976" level="INFO">Clicking element '//label[normalize-space()='Selecione o seu gênero:']'.</msg>
+<arg>${XPATH_GENERO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:56.271663" elapsed="0.077523"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:56.349972" level="INFO">Clicking element '//label[normalize-space()='Outros']'.</msg>
+<arg>${XPATH_GENERO_OUTROS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T15:18:56.349511" elapsed="0.047187"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:56.397929" level="INFO">Executing JavaScript:
+window.scrollBy(0, 700);
+Without any arguments.</msg>
+<arg>window.scrollBy(0, 700);</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-04-07T15:18:56.396942" elapsed="0.009204"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-04-07T15:18:56.408027" level="INFO">Executing JavaScript:
+window.scrollBy(0, 700);
+Without any arguments.</msg>
+<arg>window.scrollBy(0, 700);</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-04-07T15:18:56.406494" elapsed="0.010440"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${XPATH_BOTAO_SALVAR}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-07T15:18:56.417174" elapsed="0.022016"/>
+</kw>
+<doc>Insere dados fakes.</doc>
+<status status="PASS" start="2025-04-07T15:18:55.394851" elapsed="1.044639"/>
+</kw>
+<kw name="Fechar o Navegador" owner="keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-07T15:18:56.441921" elapsed="2.235325"/>
+</kw>
+<doc>Fecha o navegador.</doc>
+<status status="PASS" start="2025-04-07T15:18:56.440903" elapsed="2.236965"/>
+</kw>
+<doc>Teste para Campos Obrigatórios</doc>
+<tag>cadastro</tag>
+<status status="PASS" start="2025-04-07T15:18:48.623915" elapsed="10.055399"/>
+</test>
+<status status="PASS" start="2025-04-07T15:18:48.407524" elapsed="10.275286"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">cadastro</stat>
+</tag>
+<suite>
+<stat name="CT009 Campos Obrigatorios" id="s1" pass="1" fail="0" skip="0">CT009 Campos Obrigatorios</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

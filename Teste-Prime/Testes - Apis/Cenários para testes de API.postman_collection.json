@@ -1,0 +1,1970 @@
+{
+	"info": {
+		"_postman_id": "d28838cb-c67e-43ad-ac4b-753cffbedb70",
+		"name": "Cenários para testes de API",
+		"description": "Esta collection tem como objetivo explorar o [endpoint ](https://api-challenge.primecontrol.com.br/) fornecido pela PrimeControl afim para realizar testes de API's.\n\nCada cenário, seja ele para listar clientes, adicionar, tem uma breve descrição e exemplos de comportamento bem como suas respectivas respostas.\n\n- Observações encontradas durante a execução dos testes\n    \n- Campo do endpoint /listClients 'Fone' na documentação está marcado como 'integer', mas é 'string'.\n    \n- Já a URL do endpoint /addCliente não está correto, o certo é /addClient.\n    \n- No teste 2 de update com uma ID inválida ou inexistente, o sistema exibe erro 500, diferente da resposta proposta no documento.\n    \n- Ao realizar o teste 3 para exclusão sem ID, é possível verificar que o sistema exibe erro 404 e não exibe a mensagem que esta na documentação.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30055199"
+	},
+	"item": [
+		{
+			"name": "Listar Clientes",
+			"item": [
+				{
+					"name": "CT001 - Teste de resposta bem-sucedida",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status de retorno 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-challenge.primecontrol.com.br/listClients",
+							"protocol": "https",
+							"host": [
+								"api-challenge",
+								"primecontrol",
+								"com",
+								"br"
+							],
+							"path": [
+								"listClients"
+							]
+						},
+						"description": "- Retorno de uma lista de clientes."
+					},
+					"response": [
+						{
+							"name": "Verifica se o endpoint retorna uma lista de clientes com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api-challenge.primecontrol.com.br/listClients",
+									"protocol": "https",
+									"host": [
+										"api-challenge",
+										"primecontrol",
+										"com",
+										"br"
+									],
+									"path": [
+										"listClients"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Aug 2024 13:07:48 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Age",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"10e6-6BeY7IIN31X+4dHU42oeGjeb73I\""
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-vercel-cache",
+									"value": "MISS"
+								},
+								{
+									"key": "x-vercel-id",
+									"value": "gru1::iad1::cgg2g-1724245667961-d6feb7334f93"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=NyHC%2BKNSl%2BZIYUgavakB6kDqHC3jKl%2BeXnrUMR%2BUP5d2PggnybMfa3Oh6Z7nMgrFBdKeR%2BDoI2VTSuLe4w%2BLxFSCR%2FG8pqVUWX%2BngVw%2FCt2laPos41Lq3%2Fi7yo0iKrHUXLtELnoFoBMJ5ZIEhn%2Fi%2B1VleHg%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8b6ad920ace302f6-GRU"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"0WgR9P44m1t0Lst1V37n\",\n        \"nome\": \"Douglas Larson\",\n        \"email\": \"Dario@s5dryoap.mailosaur.net\",\n        \"fone\": \"28645707\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=bdef7402-3b06-49d1-ac3c-d132667fa55b\"\n    },\n    {\n        \"id\": \"2d6NQkMYKbvu0eqUOLSh\",\n        \"nome\": \"Kristopher Weimann\",\n        \"email\": \"Maude_Stehr61@hotmail.com\",\n        \"fone\": \"21168108\",\n        \"fotoPerfil\": \"https://plaky.com/blog/wp-content/uploads/2023/08/Found-another-bug-1.jpg\"\n    },\n    {\n        \"id\": \"2s05OiolcxcmF36MoAQl\",\n        \"nome\": \"Leland Kiehn\",\n        \"email\": \"Karina_Prosacco95@hotmail.com\",\n        \"fone\": \"55210889\",\n        \"fotoPerfil\": \"https://plaky.com/blog/wp-content/uploads/2023/08/Found-another-bug-1.jpg\"\n    },\n    {\n        \"id\": \"4dbSkgVIm7tCSFdGISGC\",\n        \"nome\": \"Julia Pagac DVM\",\n        \"email\": \"Luna@s5dryoap.mailosaur.net\",\n        \"fone\": \"67384541\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=a45d6256-eff6-4df0-a7a2-53310735527f\"\n    },\n    {\n        \"id\": \"65Cbh1ke7ZYDgUI6E75R\",\n        \"nome\": \"Jean Schinner Sr.\",\n        \"email\": \"Aliya22@hotmail.com\",\n        \"fone\": \"34306394\",\n        \"fotoPerfil\": \"https://plaky.com/blog/wp-content/uploads/2023/08/Found-another-bug-1.jpg\"\n    },\n    {\n        \"id\": \"FbxGI3yngaLv2dLD31U4\",\n        \"nome\": \"Ashley Cremin\",\n        \"email\": \"Edison@s5dryoap.mailosaur.net\",\n        \"fone\": \"89028629\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=2dc6f2a4-393b-4db4-8ff0-540decb84e8d\"\n    },\n    {\n        \"id\": \"IkuGLX620bJV7K6LSToS\",\n        \"nome\": \"Constance Metz\",\n        \"email\": \"Camila@s5dryoap.mailosaur.net\",\n        \"fone\": \"70777341\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=c1d8a438-4af9-49b3-b7c1-f5b907982898\"\n    },\n    {\n        \"id\": \"LTr3UvkyWohEz46NoR9u\",\n        \"nome\": \"Marta Zulauf\",\n        \"email\": \"Cyril@s5dryoap.mailosaur.net\",\n        \"fone\": \"50682865\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=ff5ecaf3-83a0-4483-8464-58a1062c3b8b\"\n    },\n    {\n        \"id\": \"PmS6YF5Gowf0KWCw7iaX\",\n        \"nome\": \"Andrew Roberts\",\n        \"email\": \"Paul_Lubowitz27@yahoo.com\",\n        \"fone\": \"61636630\",\n        \"fotoPerfil\": \"https://plaky.com/blog/wp-content/uploads/2023/08/Found-another-bug-1.jpg\"\n    },\n    {\n        \"id\": \"aDrpYLo5GhybXeBIW0kr\",\n        \"nome\": \"Abraham Lynch\",\n        \"email\": \"Nicholas_Toy@gmail.com\",\n        \"fone\": \"21822829\",\n        \"fotoPerfil\": \"https://plaky.com/blog/wp-content/uploads/2023/08/Found-another-bug-1.jpg\"\n    },\n    {\n        \"id\": \"icEI7QRK7mRoIA2gXHnu\",\n        \"nome\": \"Tami Kulas\",\n        \"email\": \"Missouri@s5dryoap.mailosaur.net\",\n        \"fone\": \"79833073\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=7efd126d-97bc-4917-a168-d0d2e6e7ee4e\"\n    },\n    {\n        \"id\": \"jX7YCwJpWKjSdRWc9RkL\",\n        \"nome\": \"Toby Lesch Sr.\",\n        \"email\": \"Phoebe@s5dryoap.mailosaur.net\",\n        \"fone\": \"45240510\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=82ea7595-df8b-4d64-af88-fec46f99fe17\"\n    },\n    {\n        \"id\": \"jmtEluYJW0fEWRxwiwP7\",\n        \"nome\": \"Boyd Lubowitz PhD\",\n        \"email\": \"Yolanda_Langworth18@gmail.com\",\n        \"fone\": \"68137053\",\n        \"fotoPerfil\": \"https://plaky.com/blog/wp-content/uploads/2023/08/Found-another-bug-1.jpg\"\n    },\n    {\n        \"id\": \"kIfuEspQltwcgsIi06u4\",\n        \"nome\": \"Gordon Koepp\",\n        \"email\": \"Brennan@s5dryoap.mailosaur.net\",\n        \"fone\": \"65423664\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=948f74ab-a237-45e4-a4f7-3fea9c240d72\"\n    },\n    {\n        \"id\": \"nXm3EjVEGtPgxGStLO8K\",\n        \"nome\": \"Gustavo Hudson\",\n        \"email\": \"Roger64@hotmail.com\",\n        \"fone\": \"76077307\",\n        \"fotoPerfil\": \"https://plaky.com/blog/wp-content/uploads/2023/08/Found-another-bug-1.jpg\"\n    },\n    {\n        \"id\": \"rC9QZMPkavKvY4ogUVoy\",\n        \"nome\": \"Wendell Cassin\",\n        \"email\": \"Meagan82@yahoo.com\",\n        \"fone\": \"25136727\",\n        \"fotoPerfil\": \"https://plaky.com/blog/wp-content/uploads/2023/08/Found-another-bug-1.jpg\"\n    },\n    {\n        \"id\": \"tVkMxyL2tnE6RuxTxJyg\",\n        \"nome\": \"Drew Brown\",\n        \"email\": \"Duane@s5dryoap.mailosaur.net\",\n        \"fone\": \"98682780\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=bf81b2d3-0cd6-4ac6-a80d-899c35360cfe\"\n    },\n    {\n        \"id\": \"trdLI06cRS00kxnhcCH6\",\n        \"nome\": \"Nina Homenick MD\",\n        \"email\": \"Abby@s5dryoap.mailosaur.net\",\n        \"fone\": \"21305889\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=6461429d-7583-4f76-8916-21d306568a3e\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "CT002 - Teste de validação dos campos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validação dos campos na resposta\", function () {\r",
+									"    const jsonData = pm.response.json();\r",
+									"\r",
+									"    jsonData.forEach(client => {\r",
+									"        // Verifica se os campos obrigatórios estão presentes\r",
+									"        pm.expect(client).to.have.property('id').that.is.a('string');\r",
+									"        pm.expect(client).to.have.property('nome').that.is.a('string');\r",
+									"        pm.expect(client).to.have.property('email').that.is.a('string');\r",
+									"        \r",
+									"        //Campo \"fone\" esta retornando como string sendo que na documentação é inteiro\r",
+									"        pm.expect(client).to.have.property('fone').that.is.a('string'); \r",
+									"        \r",
+									"        pm.expect(client).to.have.property('fotoPerfil').that.is.a('string');\r",
+									"\r",
+									"        // Valida o formato do email\r",
+									"        pm.expect(client.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/);\r",
+									"\r",
+									"        // Valida o formato da URL da foto de perfil\r",
+									"        pm.expect(client.fotoPerfil).to.match(/^https?:\\/\\/.+$/);\r",
+									"\r",
+									"\r",
+									"        pm.test(\"Status de retorno 200\", function () {\r",
+									"            pm.response.to.have.status(200);\r",
+									"        });\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api-challenge.primecontrol.com.br/listClients/",
+							"protocol": "https",
+							"host": [
+								"api-challenge",
+								"primecontrol",
+								"com",
+								"br"
+							],
+							"path": [
+								"listClients",
+								""
+							]
+						},
+						"description": "- Garante que todos os campos estejam presentes no formato correto."
+					},
+					"response": [
+						{
+							"name": "Garantir que todos os campos estejam presentes e no formato correto.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api-challenge.primecontrol.com.br/listClients/",
+									"protocol": "https",
+									"host": [
+										"api-challenge",
+										"primecontrol",
+										"com",
+										"br"
+									],
+									"path": [
+										"listClients",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Aug 2024 13:42:01 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Age",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"10e6-6BeY7IIN31X+4dHU42oeGjeb73I\""
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-vercel-cache",
+									"value": "MISS"
+								},
+								{
+									"key": "x-vercel-id",
+									"value": "gru1::iad1::8tgb6-1724247720985-9874c5487a38"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=6T3yQQ3t0zMmhpcFVYhjvyG4hBDec9V%2B4Gf6ffjhZrCzS0pGsNUvy%2FV5WGjjQiG1%2BSfUF9czGge13qoJk%2BVEtFA9iACVlF1RGkBId5E99yU72lw4GD4kXSR%2Fgg4bANgYQKxLZskpvRklUV8vAfmvFD6dy7Q%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8b6b0b400f8002f6-GRU"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"0WgR9P44m1t0Lst1V37n\",\n        \"nome\": \"Douglas Larson\",\n        \"email\": \"Dario@s5dryoap.mailosaur.net\",\n        \"fone\": \"28645707\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=bdef7402-3b06-49d1-ac3c-d132667fa55b\"\n    },\n    {\n        \"id\": \"2d6NQkMYKbvu0eqUOLSh\",\n        \"nome\": \"Kristopher Weimann\",\n        \"email\": \"Maude_Stehr61@hotmail.com\",\n        \"fone\": \"21168108\",\n        \"fotoPerfil\": \"https://plaky.com/blog/wp-content/uploads/2023/08/Found-another-bug-1.jpg\"\n    },\n    {\n        \"id\": \"2s05OiolcxcmF36MoAQl\",\n        \"nome\": \"Leland Kiehn\",\n        \"email\": \"Karina_Prosacco95@hotmail.com\",\n        \"fone\": \"55210889\",\n        \"fotoPerfil\": \"https://plaky.com/blog/wp-content/uploads/2023/08/Found-another-bug-1.jpg\"\n    },\n    {\n        \"id\": \"4dbSkgVIm7tCSFdGISGC\",\n        \"nome\": \"Julia Pagac DVM\",\n        \"email\": \"Luna@s5dryoap.mailosaur.net\",\n        \"fone\": \"67384541\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=a45d6256-eff6-4df0-a7a2-53310735527f\"\n    },\n    {\n        \"id\": \"65Cbh1ke7ZYDgUI6E75R\",\n        \"nome\": \"Jean Schinner Sr.\",\n        \"email\": \"Aliya22@hotmail.com\",\n        \"fone\": \"34306394\",\n        \"fotoPerfil\": \"https://plaky.com/blog/wp-content/uploads/2023/08/Found-another-bug-1.jpg\"\n    },\n    {\n        \"id\": \"FbxGI3yngaLv2dLD31U4\",\n        \"nome\": \"Ashley Cremin\",\n        \"email\": \"Edison@s5dryoap.mailosaur.net\",\n        \"fone\": \"89028629\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=2dc6f2a4-393b-4db4-8ff0-540decb84e8d\"\n    },\n    {\n        \"id\": \"IkuGLX620bJV7K6LSToS\",\n        \"nome\": \"Constance Metz\",\n        \"email\": \"Camila@s5dryoap.mailosaur.net\",\n        \"fone\": \"70777341\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=c1d8a438-4af9-49b3-b7c1-f5b907982898\"\n    },\n    {\n        \"id\": \"LTr3UvkyWohEz46NoR9u\",\n        \"nome\": \"Marta Zulauf\",\n        \"email\": \"Cyril@s5dryoap.mailosaur.net\",\n        \"fone\": \"50682865\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=ff5ecaf3-83a0-4483-8464-58a1062c3b8b\"\n    },\n    {\n        \"id\": \"PmS6YF5Gowf0KWCw7iaX\",\n        \"nome\": \"Andrew Roberts\",\n        \"email\": \"Paul_Lubowitz27@yahoo.com\",\n        \"fone\": \"61636630\",\n        \"fotoPerfil\": \"https://plaky.com/blog/wp-content/uploads/2023/08/Found-another-bug-1.jpg\"\n    },\n    {\n        \"id\": \"aDrpYLo5GhybXeBIW0kr\",\n        \"nome\": \"Abraham Lynch\",\n        \"email\": \"Nicholas_Toy@gmail.com\",\n        \"fone\": \"21822829\",\n        \"fotoPerfil\": \"https://plaky.com/blog/wp-content/uploads/2023/08/Found-another-bug-1.jpg\"\n    },\n    {\n        \"id\": \"icEI7QRK7mRoIA2gXHnu\",\n        \"nome\": \"Tami Kulas\",\n        \"email\": \"Missouri@s5dryoap.mailosaur.net\",\n        \"fone\": \"79833073\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=7efd126d-97bc-4917-a168-d0d2e6e7ee4e\"\n    },\n    {\n        \"id\": \"jX7YCwJpWKjSdRWc9RkL\",\n        \"nome\": \"Toby Lesch Sr.\",\n        \"email\": \"Phoebe@s5dryoap.mailosaur.net\",\n        \"fone\": \"45240510\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=82ea7595-df8b-4d64-af88-fec46f99fe17\"\n    },\n    {\n        \"id\": \"jmtEluYJW0fEWRxwiwP7\",\n        \"nome\": \"Boyd Lubowitz PhD\",\n        \"email\": \"Yolanda_Langworth18@gmail.com\",\n        \"fone\": \"68137053\",\n        \"fotoPerfil\": \"https://plaky.com/blog/wp-content/uploads/2023/08/Found-another-bug-1.jpg\"\n    },\n    {\n        \"id\": \"kIfuEspQltwcgsIi06u4\",\n        \"nome\": \"Gordon Koepp\",\n        \"email\": \"Brennan@s5dryoap.mailosaur.net\",\n        \"fone\": \"65423664\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=948f74ab-a237-45e4-a4f7-3fea9c240d72\"\n    },\n    {\n        \"id\": \"nXm3EjVEGtPgxGStLO8K\",\n        \"nome\": \"Gustavo Hudson\",\n        \"email\": \"Roger64@hotmail.com\",\n        \"fone\": \"76077307\",\n        \"fotoPerfil\": \"https://plaky.com/blog/wp-content/uploads/2023/08/Found-another-bug-1.jpg\"\n    },\n    {\n        \"id\": \"rC9QZMPkavKvY4ogUVoy\",\n        \"nome\": \"Wendell Cassin\",\n        \"email\": \"Meagan82@yahoo.com\",\n        \"fone\": \"25136727\",\n        \"fotoPerfil\": \"https://plaky.com/blog/wp-content/uploads/2023/08/Found-another-bug-1.jpg\"\n    },\n    {\n        \"id\": \"tVkMxyL2tnE6RuxTxJyg\",\n        \"nome\": \"Drew Brown\",\n        \"email\": \"Duane@s5dryoap.mailosaur.net\",\n        \"fone\": \"98682780\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=bf81b2d3-0cd6-4ac6-a80d-899c35360cfe\"\n    },\n    {\n        \"id\": \"trdLI06cRS00kxnhcCH6\",\n        \"nome\": \"Nina Homenick MD\",\n        \"email\": \"Abby@s5dryoap.mailosaur.net\",\n        \"fone\": \"21305889\",\n        \"fotoPerfil\": \"https://firebasestorage.googleapis.com/v0/b/pagina-teste-prime.appspot.com/o/image_to_upload.jpg?alt=media&token=6461429d-7583-4f76-8916-21d306568a3e\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "CT003 - Teste de validação de endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status de retorno 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api-challenge.primecontrol.com.br/listClients/inexistente",
+							"protocol": "https",
+							"host": [
+								"api-challenge",
+								"primecontrol",
+								"com",
+								"br"
+							],
+							"path": [
+								"listClients",
+								"inexistente"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "- Garante que ao executar um endpoint inexistente, é retornado o código 404."
+					},
+					"response": [
+						{
+							"name": "Ao passar um endpoint inexistente, é retornado o código 404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api-challenge.primecontrol.com.br/listClients/inexistente",
+									"protocol": "https",
+									"host": [
+										"api-challenge",
+										"primecontrol",
+										"com",
+										"br"
+									],
+									"path": [
+										"listClients",
+										"inexistente"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Aug 2024 13:47:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Age",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "default-src 'none'"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-vercel-cache",
+									"value": "MISS"
+								},
+								{
+									"key": "x-vercel-id",
+									"value": "gru1::iad1::z2sg8-1724248063092-a760ac8a319c"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=rZE7I7kdPMg%2B6QEeSpunnZusE%2F4scODjxvPv8jj5DmGDHeeaR8DfdHtG0pgozaFSNIeR5rBHWz9x23pWeoZAq%2FRHNQsgEcN97FqklVmVcMcHaW14HJPK04NfbRqklcLOAVS%2Fy67XoGp1G%2Bp3JVdLGkbO%2FUs%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8b6b139a39d202f6-GRU"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error</title>\n    </head>\n    <body>\n        <pre>Cannot GET /listClients/inexistente</pre>\n    </body>\n</html>"
+						}
+					]
+				}
+			],
+			"description": "Endpoint responsável listar os clientes e validação de campos."
+		},
+		{
+			"name": "Adicionar Clientes",
+			"item": [
+				{
+					"name": "CT001 - Teste de adição bem-sucedida",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status de retorno 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Leonardo Gutierrez\",\r\n  \"email\": \"leonardo.gutierrezcwb@example.com\",\r\n  \"fone\": \"1234567890\",\r\n  \"fotoPerfil\": \"https://example.com/foto-perfil.jpg\",\r\n  \"cep\": \"12345-678\",\r\n  \"endereco\": \"Rua Exemplo, 1\",\r\n  \"complemento\": \"Apt 45\",\r\n  \"pais\": \"Brasil\",\r\n  \"genero\": \"Masculino\",\r\n  \"ferramentas\": [\"Postman\", \"Cypress\", \"SAP\", \"Robot Framework\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-challenge.primecontrol.com.br/addClient",
+							"protocol": "https",
+							"host": [
+								"api-challenge",
+								"primecontrol",
+								"com",
+								"br"
+							],
+							"path": [
+								"addClient"
+							]
+						},
+						"description": "- Verifica se um novo cliente é adicionado com sucesso quando todos os dados passados estão corretos."
+					},
+					"response": [
+						{
+							"name": "Cliente cadastrado com sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Leonardo Gutierrez\",\r\n  \"email\": \"leonardo.gutierrezcwb@example.com\",\r\n  \"fone\": \"1234567890\",\r\n  \"fotoPerfil\": \"https://example.com/foto-perfil.jpg\",\r\n  \"cep\": \"12345-678\",\r\n  \"endereco\": \"Rua Exemplo, 1\",\r\n  \"complemento\": \"Apt 45\",\r\n  \"pais\": \"Brasil\",\r\n  \"genero\": \"Masculino\",\r\n  \"ferramentas\": [\"Postman\", \"Cypress\", \"SAP\", \"Robot Framework\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api-challenge.primecontrol.com.br/addClient",
+									"protocol": "https",
+									"host": [
+										"api-challenge",
+										"primecontrol",
+										"com",
+										"br"
+									],
+									"path": [
+										"addClient"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 02 Apr 2025 18:56:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"49-Uts1PWMOOSOmsBR84mAt5vRx0ps\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "gru1::iad1::wlkwv-1743620179316-6fef385c50dd"
+								},
+								{
+									"key": "Cf-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "92a28ba88f91f197-GRU"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Cliente cadastrado com sucesso!\",\n    \"id\": \"zfsdsNKv57kexxPMimtl\"\n}"
+						}
+					]
+				},
+				{
+					"name": "CT002 - Teste de campos obrigatórios",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status de retorno 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"\",\r\n  \"email\": \"leonardo.gutierrez@example.com\",\r\n  \"fone\": \"1234567890\",\r\n  \"fotoPerfil\": \"https://example.com/foto-perfil.jpg\",\r\n  \"cep\": \"12345-678\",\r\n  \"endereco\": \"Rua Exemplo, 123\",\r\n  \"complemento\": \"Apt 45\",\r\n  \"pais\": \"Brasil\",\r\n  \"genero\": \"Masculino\",\r\n  \"ferramentas\": [\"Postman\", \"Cypress\", \"SAP\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-challenge.primecontrol.com.br/addClient",
+							"protocol": "https",
+							"host": [
+								"api-challenge",
+								"primecontrol",
+								"com",
+								"br"
+							],
+							"path": [
+								"addClient"
+							]
+						},
+						"description": "- Garante que todos os campos obrigatórios sejam fornecidos e caso não retorno o que estiver faltando."
+					},
+					"response": [
+						{
+							"name": "Teste de campo obrigatório",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"\",\r\n  \"email\": \"leonardo.gutierrez@example.com\",\r\n  \"fone\": \"1234567890\",\r\n  \"fotoPerfil\": \"https://example.com/foto-perfil.jpg\",\r\n  \"cep\": \"12345-678\",\r\n  \"endereco\": \"Rua Exemplo, 123\",\r\n  \"complemento\": \"Apt 45\",\r\n  \"pais\": \"Brasil\",\r\n  \"genero\": \"Masculino\",\r\n  \"ferramentas\": [\"Postman\", \"Cypress\", \"SAP\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api-challenge.primecontrol.com.br/addClient",
+									"protocol": "https",
+									"host": [
+										"api-challenge",
+										"primecontrol",
+										"com",
+										"br"
+									],
+									"path": [
+										"addClient"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Aug 2024 14:45:57 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"1c-ciuaNBx6tXzilWDoDqcatmrvC7g\""
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-vercel-cache",
+									"value": "MISS"
+								},
+								{
+									"key": "x-vercel-id",
+									"value": "gru1::iad1::4fmqf-1724251557816-34c4b6a30b9f"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=f2vPt9I8HznA8nGS0xXLcGwDlzfnHx98g%2Fg3QxyjfdmOYMC2NkjE3LpteSy3h2r%2BSeoMOtRUuFMMXykfNKpLjrfOvsTOUFJ0%2FD%2FDxtVr4Fq8mk0zp18UWhxyAqSYbHJnxzVO0Nkj2PcoQVEUsSBZWa3Szkg%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8b6b68ec4d0b02f6-GRU"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Informe o nome\"\n}"
+						}
+					]
+				},
+				{
+					"name": "CT003 - Teste de validação do e-mail e URL do perfil",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Email é inválido\", function() {\r",
+									"    var email = pm.response.json().email;\r",
+									"    var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;\r",
+									"    pm.expect(emailRegex.test(email)).to.be.false;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"FotoPerfil é inválido\", function() {\r",
+									"    var fotoPerfil = pm.response.json().fotoPerfil;\r",
+									"    var urlRegex = /^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$/;\r",
+									"    pm.expect(urlRegex.test(fotoPerfil)).to.be.false;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status de retorno 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Leonardo Dos Santos Gutierrez\",\r\n  \"email\": \"teste@pr\",\r\n  \"fone\": \"1234567890\",\r\n  \"fotoPerfil\": \"urlinvalida.c\",\r\n  \"cep\": \"12345-678\",\r\n  \"endereco\": \"Rua Exemplo, 123\",\r\n  \"complemento\": \"Apt 45\",\r\n  \"pais\": \"Brasil\",\r\n  \"genero\": \"Masculino\",\r\n  \"ferramentas\": [\"Postman\", \"Cypress\", \"SAP\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-challenge.primecontrol.com.br/addClient",
+							"protocol": "https",
+							"host": [
+								"api-challenge",
+								"primecontrol",
+								"com",
+								"br"
+							],
+							"path": [
+								"addClient"
+							]
+						},
+						"description": "- Garante que o campo e-mail tenha um formato válido e que \"fotoPerfil\" seja um URL válida."
+					},
+					"response": [
+						{
+							"name": "Validação de campo e-mail e url do perfil",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Leonardo Dos Santos Gutierrez\",\r\n  \"email\": \"teste@pr\",\r\n  \"fone\": \"1234567890\",\r\n  \"fotoPerfil\": \"urlinvalida.c\",\r\n  \"cep\": \"12345-678\",\r\n  \"endereco\": \"Rua Exemplo, 123\",\r\n  \"complemento\": \"Apt 45\",\r\n  \"pais\": \"Brasil\",\r\n  \"genero\": \"Masculino\",\r\n  \"ferramentas\": [\"Postman\", \"Cypress\", \"SAP\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api-challenge.primecontrol.com.br/addClient",
+									"protocol": "https",
+									"host": [
+										"api-challenge",
+										"primecontrol",
+										"com",
+										"br"
+									],
+									"path": [
+										"addClient"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Aug 2024 15:01:10 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"2a-uXesJtArjdgLe2W2N9Cz1FElcVI\""
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-vercel-cache",
+									"value": "MISS"
+								},
+								{
+									"key": "x-vercel-id",
+									"value": "gru1::iad1::fqzqz-1724252470299-4a5cc2f3bed3"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=p9gacC8daBkmX63zOBxzbptBIUtUvI47LWg2Pvh6nBfkmK9tXUDkLNaTtMLGzpuvQuIgfrCYMwyvEPjj7s07InbD91tp6wSokst5TT%2BR%2B7AFta1Af4mFzCAfilVEBg6eEvMLg7%2BYdjPHXmHuDVJkQMITCa8%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8b6b7f335f5202f6-GRU"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"E-mail em formato inválido.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "CT-004 Teste de adição com ferramentas vazias",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status de retorno 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Augusto Lima\",\r\n  \"email\": \"lima.augusto@example.com\",\r\n  \"fone\": \"1234567890\",\r\n  \"fotoPerfil\": \"https://example.com/foto-perfil.jpg\",\r\n  \"cep\": \"12345-678\",\r\n  \"endereco\": \"Rua Exemplo, 123\",\r\n  \"complemento\": \"Apt 45\",\r\n  \"pais\": \"Brasil\",\r\n  \"genero\": \"Masculino\",\r\n  \"ferramentas\": [\"\", \"\", \"\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-challenge.primecontrol.com.br/addClient",
+							"protocol": "https",
+							"host": [
+								"api-challenge",
+								"primecontrol",
+								"com",
+								"br"
+							],
+							"path": [
+								"addClient"
+							]
+						},
+						"description": "- Verifica o comportamento ao tentar adicionar um cliente sem fornecer nenhuma ferramenta na lista de \"ferramentas."
+					},
+					"response": [
+						{
+							"name": "Cliente cadastrado com sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Augusto Lima\",\r\n  \"email\": \"lima.augusto@example.com\",\r\n  \"fone\": \"1234567890\",\r\n  \"fotoPerfil\": \"https://example.com/foto-perfil.jpg\",\r\n  \"cep\": \"12345-678\",\r\n  \"endereco\": \"Rua Exemplo, 123\",\r\n  \"complemento\": \"Apt 45\",\r\n  \"pais\": \"Brasil\",\r\n  \"genero\": \"Masculino\",\r\n  \"ferramentas\": [\"\", \"\", \"\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api-challenge.primecontrol.com.br/addClient",
+									"protocol": "https",
+									"host": [
+										"api-challenge",
+										"primecontrol",
+										"com",
+										"br"
+									],
+									"path": [
+										"addClient"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Aug 2024 16:55:58 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"49-ORW4y6m3LGgCnPO+9UNec95DExo\""
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-vercel-cache",
+									"value": "MISS"
+								},
+								{
+									"key": "x-vercel-id",
+									"value": "gru1::iad1::8gmdb-1724259357564-8cdad60b564f"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=TXN46uwVmNWyQgW97Z8IGj4ltK%2FknhGTBZeTEz4SSET9cF7X%2BOeBuvFVyiSu3R6tiVg%2BlHoYeg26hVjAfjbzGJUdt5qeRyska7fIWIdOHLYTMY%2FD0TyWhsAqj%2BgaL%2BwQg11f4I1VRSBuBtQl9dnsbffUbuE%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8b6c27588c911ace-GRU"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Cliente cadastrado com sucesso!\",\n    \"id\": \"BbnNMzlYAlz524D50JnG\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Endpoint responsável adicionar os clientes e validação de campos obrigatórios."
+		},
+		{
+			"name": "Atualizar Clientes",
+			"item": [
+				{
+					"name": "CT001 - Teste de atualização bem-sucedida",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status de retorno 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \r\n        \"nome\": \"Caio Alves\",\r\n        \"email\": \"caio.alves@example.com\",\r\n        \"fone\": \"1234567890\",\r\n        \"fotoPerfil\": \"https://example.com/foto-perfil.jpg\"\r\n\r\n\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-challenge.primecontrol.com.br/updateClient/1JWuGzwJkULaRveVvpBE",
+							"protocol": "https",
+							"host": [
+								"api-challenge",
+								"primecontrol",
+								"com",
+								"br"
+							],
+							"path": [
+								"updateClient",
+								"1JWuGzwJkULaRveVvpBE"
+							]
+						},
+						"description": "- Verifica se um cliente é atualizado com sucesso ao fornecer um ID válido e os campos para atualização."
+					},
+					"response": [
+						{
+							"name": "Atualização de cliente concluída",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \r\n        \"nome\": \"Caio Alves\",\r\n        \"email\": \"caio.alves@example.com\",\r\n        \"fone\": \"1234567890\",\r\n        \"fotoPerfil\": \"https://example.com/foto-perfil.jpg\"\r\n\r\n\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api-challenge.primecontrol.com.br/updateClient/1JWuGzwJkULaRveVvpBE",
+									"protocol": "https",
+									"host": [
+										"api-challenge",
+										"primecontrol",
+										"com",
+										"br"
+									],
+									"path": [
+										"updateClient",
+										"1JWuGzwJkULaRveVvpBE"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Aug 2024 15:27:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"2d-8xwAs8h1tEscufDgslqtiuvxNqk\""
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-vercel-cache",
+									"value": "MISS"
+								},
+								{
+									"key": "x-vercel-id",
+									"value": "gru1::iad1::wrp2m-1724254065415-cf76be0a6b02"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=b3JGRrF1WzoDStZ8Iy4jJmuz1Uk%2FdpXRF0s3KUHvK9nqbiXD2TrY064W4541tr9b%2FJ2fS7qMSeMekqr%2B4fzw77wvydRlebN1Z4Rt%2Bl%2FzfFgmpCuqehms0q23n2m5WW6M4eorKSaDxyQKpZ0vwpxtX%2FPhkJ4%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8b6ba624bb2302f6-GRU"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Cliente atualizado com sucesso!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "CT002 - Teste de cliente não encontrado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status de retorno 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \r\n        \"nome\": \"Caio Alves\",\r\n        \"email\": \"caio.alves@example.com\",\r\n        \"fone\": \"1234567890\",\r\n        \"fotoPerfil\": \"https://example.com/foto-perfil.jpg\"\r\n\r\n\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-challenge.primecontrol.com.br/updateClient/1JWuGzwJkULaRveVvpBP",
+							"protocol": "https",
+							"host": [
+								"api-challenge",
+								"primecontrol",
+								"com",
+								"br"
+							],
+							"path": [
+								"updateClient",
+								"1JWuGzwJkULaRveVvpBP"
+							]
+						},
+						"description": "- Garante que uma mensagem apropriada seja retornada quando um ID for inválido ou inexistente for fornecido para atualização."
+					},
+					"response": [
+						{
+							"name": "Update com ID inexistente",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \r\n        \"nome\": \"Caio Alves\",\r\n        \"email\": \"caio.alves@example.com\",\r\n        \"fone\": \"1234567890\",\r\n        \"fotoPerfil\": \"https://example.com/foto-perfil.jpg\"\r\n\r\n\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api-challenge.primecontrol.com.br/updateClient/1JWuGzwJkULaRveVvpBP",
+									"protocol": "https",
+									"host": [
+										"api-challenge",
+										"primecontrol",
+										"com",
+										"br"
+									],
+									"path": [
+										"updateClient",
+										"1JWuGzwJkULaRveVvpBP"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Aug 2024 15:31:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "160"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"a0-Qn7IgyQm06aVlwlaBEyqWEA0ge8\""
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-vercel-cache",
+									"value": "MISS"
+								},
+								{
+									"key": "x-vercel-id",
+									"value": "gru1::iad1::f8nlz-1724254284453-492b490d19f8"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=7E7eBFZlKPoITInDmd9D87OjyGbXdnq%2BFwdrbFBZoM2k2TKd8kyGhTRN9l%2BeowRdmJHG4lBHAcLml6cF6kOnvoSnDoeBSYpyrfWLFl%2FsKPFr54sAPqAMmT9Rrq2TVeBXN6VXCEKL59zBtR82w3Ca4zViw9E%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8b6bab7dccdb02f6-GRU"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Error updating client: 5 NOT_FOUND: No document to update: projects/pagina-teste-prime/databases/(default)/documents/clientes/1JWuGzwJkULaRveVvpBP\"\n}"
+						}
+					]
+				},
+				{
+					"name": "CT003 - Teste de atualização sem campos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Email é inválido\", function() {\r",
+									"    var email = pm.response.json().email;\r",
+									"    var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;\r",
+									"    pm.expect(emailRegex.test(email)).to.be.false;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"FotoPerfil é inválido\", function() {\r",
+									"    var fotoPerfil = pm.response.json().fotoPerfil;\r",
+									"    var urlRegex = /^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$/;\r",
+									"    pm.expect(urlRegex.test(fotoPerfil)).to.be.false;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status de retorno 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n        \"nome\": \"Caio Alves\",\r\n        \"email\": \"caio.c\",\r\n        \"fone\": \"1234567890\",\r\n        \"fotoPerfil\": \"url.c\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-challenge.primecontrol.com.br/updateClient/1JWuGzwJkULaRveVvpBE",
+							"protocol": "https",
+							"host": [
+								"api-challenge",
+								"primecontrol",
+								"com",
+								"br"
+							],
+							"path": [
+								"updateClient",
+								"1JWuGzwJkULaRveVvpBE"
+							]
+						},
+						"description": "- Garante que o campo \"email\" tenha um formato válido e que \"fotoPerfil\" seja uma URL válida."
+					},
+					"response": [
+						{
+							"name": "Atualização sem campos preenchidos",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{    \r\n        \"nome\": \"Caio Alves\",\r\n        \"email\": \"caio.c\",\r\n        \"fone\": \"1234567890\",\r\n        \"fotoPerfil\": \"url.c\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api-challenge.primecontrol.com.br/updateClient/1JWuGzwJkULaRveVvpBE",
+									"protocol": "https",
+									"host": [
+										"api-challenge",
+										"primecontrol",
+										"com",
+										"br"
+									],
+									"path": [
+										"updateClient",
+										"1JWuGzwJkULaRveVvpBE"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Aug 2024 15:38:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"2a-uXesJtArjdgLe2W2N9Cz1FElcVI\""
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-vercel-cache",
+									"value": "MISS"
+								},
+								{
+									"key": "x-vercel-id",
+									"value": "gru1::iad1::wmphk-1724254698418-ecf37a8d46c5"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=2K7iMJjm4vPel%2BvfYMF5nFZXTa%2FmTzUg4LOMjt8tB3tx28W%2FFzgvE75%2B93Lt%2FJqy9lgw86Z3qaQd8bp4Fv0V%2FIXiCCHSjSJw8vnjkXGsQl7uDT7BPocq17rpuBgBq8RSgAeau2uQr7goJpPA7UUOtklWzqI%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8b6bb5990d3d02f6-GRU"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"E-mail em formato inválido.\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Endpoint responsável adicionar os clientes e validação de campos obrigatórios."
+		},
+		{
+			"name": "Deletar Cliente",
+			"item": [
+				{
+					"name": "CT001 - Teste de exclusão bem-sucedida",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status de retorno 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api-challenge.primecontrol.com.br/deleteClient/tVkMxyL2tnE6RuxTxJyg",
+							"protocol": "https",
+							"host": [
+								"api-challenge",
+								"primecontrol",
+								"com",
+								"br"
+							],
+							"path": [
+								"deleteClient",
+								"tVkMxyL2tnE6RuxTxJyg"
+							]
+						},
+						"description": "- Verifica se um cliente é excluído ao fornecer um ID válido."
+					},
+					"response": [
+						{
+							"name": "Verificado que o cliente foi excluído com um ID válido",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://api-challenge.primecontrol.com.br/deleteClient/trdLI06cRS00kxnhcCH6",
+									"protocol": "https",
+									"host": [
+										"api-challenge",
+										"primecontrol",
+										"com",
+										"br"
+									],
+									"path": [
+										"deleteClient",
+										"trdLI06cRS00kxnhcCH6"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Aug 2024 15:07:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "38"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"26-iAS9FdYMXx6jg3lylnD5ebSKmbU\""
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-vercel-cache",
+									"value": "MISS"
+								},
+								{
+									"key": "x-vercel-id",
+									"value": "gru1::iad1::rc5sb-1724252830667-a333392a1f99"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=0QeIHtIpqWjJc9yQHU9%2BqQB%2BEkLNitI9SyntvYzr%2BRdO2fLDYjT70wtsBguLgRKy%2BsJwULVPc3dFXG5GIVm9btoJAAT0er5w2OPkXUYM8Kqb94aJJYs6sxMY%2FKTdfDzgnluvnf92Ol019qHFZjF7QwNaKsY%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8b6b87ff881102f6-GRU"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Cliente não encontrado.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "CT002 - Teste de Cliente não encontrado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status de retorno 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api-challenge.primecontrol.com.br/deleteClient/0WgR9P44m1t0Lst1V37n",
+							"protocol": "https",
+							"host": [
+								"api-challenge",
+								"primecontrol",
+								"com",
+								"br"
+							],
+							"path": [
+								"deleteClient",
+								"0WgR9P44m1t0Lst1V37n"
+							]
+						},
+						"description": "- Garante que haja um retorno de mensagem quando um ID inválido ou inexistente for fornecido."
+					},
+					"response": [
+						{
+							"name": "Cliente não encontrado",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://api-challenge.primecontrol.com.br/deleteClient/0WgR9P44m1t0Lst1V37n",
+									"protocol": "https",
+									"host": [
+										"api-challenge",
+										"primecontrol",
+										"com",
+										"br"
+									],
+									"path": [
+										"deleteClient",
+										"0WgR9P44m1t0Lst1V37n"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Aug 2024 14:26:48 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "38"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"26-iAS9FdYMXx6jg3lylnD5ebSKmbU\""
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-vercel-cache",
+									"value": "MISS"
+								},
+								{
+									"key": "x-vercel-id",
+									"value": "gru1::iad1::zbqc7-1724250408501-77b24e41256f"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=JrCCwJt95sYthGYlkn9A9Bge4rn8%2BLkuiiaoB1wRYxJPDFR9oObE1b6KuLSbmpsjs%2FIpd1AM2S0VDBTqw6cm4ErG7aNqO3XYnhWNu8%2Fr%2B0iJA2cAnM61z1HAXfoOxgzR2RPycXLHxLDuCyCNYnrM%2ByT9cUI%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8b6b4cdd1d4b02f6-GRU"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Cliente não encontrado.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "CT003 - Teste de exclusão sem ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status de retorno 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api-challenge.primecontrol.com.br/deleteClient",
+							"protocol": "https",
+							"host": [
+								"api-challenge",
+								"primecontrol",
+								"com",
+								"br"
+							],
+							"path": [
+								"deleteClient"
+							]
+						},
+						"description": "- Verifica o comportamento do sistema ao tentar excluir um cliente sem fornecer um ID."
+					},
+					"response": [
+						{
+							"name": "Sistema mostra que não é possível deletar sem ID",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://api-challenge.primecontrol.com.br/deleteClient/",
+									"protocol": "https",
+									"host": [
+										"api-challenge",
+										"primecontrol",
+										"com",
+										"br"
+									],
+									"path": [
+										"deleteClient",
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Aug 2024 15:17:54 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "default-src 'none'"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-vercel-cache",
+									"value": "MISS"
+								},
+								{
+									"key": "x-vercel-id",
+									"value": "gru1::iad1::82d4n-1724253474716-58755459904f"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=llFOCUYUhNmbo%2FVH11rvgPUT8Al9TjultGqPdi6zOiUEnUGKUI3eES14DND%2BraNBAcHVSDL%2B%2Bgi2AdWcpjV1vIdVLoJDlxABmASxpQA8RClyAOLYKZeCnalUpGDMVBIMBybem521vYifecrQrBdW2Fw05Wk%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8b6b97b8da5602f6-GRU"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error</title>\n    </head>\n    <body>\n        <pre>Cannot POST /deleteClient/</pre>\n    </body>\n</html>"
+						}
+					]
+				}
+			],
+			"description": "Endpoint responsável por excluir os clientes ."
+		}
+	]
+}

@@ -1,0 +1,2 @@
+É possível acessar a documentação dos endpoint das API's através desse link:
+https://documenter.getpostman.com/view/30055199/2sAXjDdF3m
