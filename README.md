@@ -36,14 +36,15 @@ Antes de executar os testes, certifique-se de que sua máquina possui os seguint
    git clone https://github.com/seu-usuario/Teste-Prime.git
    cd Teste-Prime
 2. Instale as dependências do projeto:
+   ```
    pip install -r requirements.txt
-3. Certifique-se de que o ChromeDriver está configurado no ##PATH do sistema.
-4. Estrutura do Projeto
-   tests/: Contém os arquivos de teste (.robot) organizados por funcionalidade.
-   resources/: Contém os arquivos de suporte, como keywords reutilizáveis e variáveis.
+4. Certifique-se de que o ChromeDriver está configurado no **PATH** do sistema.
+5. Estrutura do Projeto:
+   ```tests/: Contém os arquivos de teste (.robot) organizados por funcionalidade.
+   ```resources/: Contém os arquivos de suporte, como keywords reutilizáveis e variáveis.
    requirements.txt: Lista de dependências do projeto.
    Cenários de Teste.txt: Lista dos cenários de teste implementados.
-5. Executando os Testes
+6. Executando os Testes
    Para executar os testes, utilize o comando abaixo no terminal
    robot -d results tests/
    -d results: Define o diretório onde os relatórios e logs serão salvos.
@@ -51,20 +52,18 @@ Antes de executar os testes, certifique-se de que sua máquina possui os seguint
    - Executar um teste específico
    Para executar um teste específico, use o nome do arquivo .robot:
 
-6. Relatórios e Logs
+7. Relatórios e Logs
    Após a execução, os relatórios e logs estarão disponíveis no diretório results/:
    report.html: Relatório detalhado da execução.
    log.html: Log detalhado com informações de cada etapa do teste.
 
 - Contribuindo
    Contribuições são bem-vindas! Siga os passos abaixo para contribuir:
-
-   Faça um fork deste repositório.
-   Crie uma branch para sua feature ou correção: git checkout -b minha-feature.
-   Faça commit das suas alterações: git commit -m 'Minha nova feature'.
-   Envie para o repositório remoto: git push origin minha-feature.
-   Abra um Pull Request.
-
+   - Faça um fork deste repositório.
+   - Crie uma branch para sua feature ou correção: git checkout -b minha-feature.
+   - Faça commit das suas alterações: git commit -m 'Minha nova feature'.
+   - Envie para o repositório remoto: git push origin minha-feature.
+   - Abra um Pull Request.
 - Contato
    Caso tenha dúvidas ou sugestões, entre em contato:
 
