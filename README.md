@@ -58,10 +58,9 @@ Antes de executar os testes, certifique-se de que sua máquina possui os seguint
    ```
    robot -d results tests/CT001_Criar_Conta.robot
 7. Relatórios e Logs
-   ```
    Após a execução, os relatórios e logs estarão disponíveis no diretório results/:
-   report.html: Relatório detalhado da execução.
    ```
+   report.html: Relatório detalhado da execução.
    log.html: Log detalhado com informações de cada etapa do teste.
 
 - Contribuindo
