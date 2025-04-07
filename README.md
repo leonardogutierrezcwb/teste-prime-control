@@ -1,58 +1,73 @@
+# Teste-Prime: Automação de Testes com Robot Framework
 
-# Desafio Prime Control
+Este repositório contém os cenários de teste automatizados para o sistema disponível em [Prime Control Challenge](https://challenge.primecontrol.com.br/). Os testes foram desenvolvidos utilizando o **Robot Framework** e cobrem funcionalidades como criação de contas, login, cadastro de clientes, entre outros.
 
-Este repositório contém script de testes para o desafio proposto pela Prime Control, para a vaga de Analista de Qualidade de Software (QA).
+## Cenários de Teste
 
-## Versão 1
+Os cenários de teste implementados neste projeto são:
 
-Foram realizados testes para os cenários descritos no documento de teste fornecido. Durante a execução dos testes, foram encontradas algumas observações importantes que são listadas abaixo:
+1. **CT001** - Criar uma nova conta com sucesso  
+2. **CT002** - Validar criação de uma conta com Email já cadastrado  
+3. **CT003** - Realizar Login com sucesso  
+4. **CT004** - Validar Login com senha inválida  
+5. **CT005** - Realizar Cadastro de Clientes com sucesso na aba Perfil  
+6. **CT006** - Validar Pesquisa de Cliente recém cadastrado e exibição dos dados em tela  
+7. **CT007** - Editar Cliente através do botão na listagem de clientes  
+8. **CT008** - Validar Cadastro de Clientes com Email inválido na aba Perfil  
+9. **CT009** - Validar preenchimento de campos obrigatórios na aba Perfil  
+10. **CT010** - Realizar Logout com sucesso ao clicar em "Finalizar"  
+11. **CT011** - Recuperar senha de acesso  
+12. **CT012** - Validar preenchimento "Informações do Candidato" ao clicar em "Finalizar e Enviar"  
 
-### Observações
+## Pré-requisitos
 
-- **CT 001**: Ao criar e-mail, o sistema não exibe nenhuma mensagem ou alerta de que o usuário foi criado com sucesso. Apenas o botão "Criar conta" muda para "Acessar".
-- **CT 005**: A documentação descreve o cadastro de clientes com sucesso na aba "Perfil", mas na home do sistema, a descrição específica é "Cadastrar Cliente". Além disso, ao incluir um 
+Antes de executar os testes, certifique-se de que sua máquina possui os seguintes itens instalados:
 
-## APIs
+- **Python 3.8+**
+- **pip** (gerenciador de pacotes do Python)
+- **Google Chrome** (ou outro navegador compatível)
+- **ChromeDriver** (compatível com a versão do seu navegador)
 
-A API utilizada para os testes está disponível neste [link](https://api-challenge.primecontrol.com.br/).
+## Instalação
 
-A documentação da API pode ser encontrada [aqui](https://documenter.getpostman.com/view/30055199/2sAXjDdF3m#intro).
+1. Clone este repositório em sua máquina local:
 
-## Execução dos Testes
-
-Para executar os scripts de teste, siga os passos abaixo:
-
-1. **Clone o repositório**:
    ```bash
-   git clone <URL_DO_REPOSITORIO>
-   cd <NOME_DO_REPOSITORIO>
-   ```
+   git clone https://github.com/seu-usuario/Teste-Prime.git
+   cd Teste-Prime
+2. Instale as dependências do projeto:
+   pip install -r requirements.txt
+3. Certifique-se de que o ChromeDriver está configurado no ##PATH do sistema.
+4. Estrutura do Projeto
+   tests/: Contém os arquivos de teste (.robot) organizados por funcionalidade.
+   resources/: Contém os arquivos de suporte, como keywords reutilizáveis e variáveis.
+   requirements.txt: Lista de dependências do projeto.
+   Cenários de Teste.txt: Lista dos cenários de teste implementados.
+5. Executando os Testes
+   Para executar os testes, utilize o comando abaixo no terminal
+   robot -d results tests/
+   -d results: Define o diretório onde os relatórios e logs serão salvos.
+   - tests/: Diretório que contém os arquivos de teste.
+   - Executar um teste específico
+   Para executar um teste específico, use o nome do arquivo .robot:
 
-2. **Instale as dependências**:
-   Certifique-se de que o [Node.js](https://nodejs.org/) está instalado em sua máquina. Em seguida, instale as dependências do projeto:
-   ```bash
-   npm install
-   ```
+6. Relatórios e Logs
+   Após a execução, os relatórios e logs estarão disponíveis no diretório results/:
+   report.html: Relatório detalhado da execução.
+   log.html: Log detalhado com informações de cada etapa do teste.
 
-3. **Execute os testes no Cypress**:
-   Para abrir o Cypress em modo interativo, use:
-   ```bash
-   npx cypress open
-   ```
-   Ou, para executar os testes diretamente no terminal, use:
-   ```bash
-   npx cypress run
-   ```
+- Contribuindo
+   Contribuições são bem-vindas! Siga os passos abaixo para contribuir:
 
-4. **Verifique os resultados**:
-   - No modo interativo, você verá os testes sendo executados na interface gráfica do Cypress.
-   - No modo de linha de comando, os resultados dos testes serão exibidos diretamente no terminal.
+   Faça um fork deste repositório.
+   Crie uma branch para sua feature ou correção: git checkout -b minha-feature.
+   Faça commit das suas alterações: git commit -m 'Minha nova feature'.
+   Envie para o repositório remoto: git push origin minha-feature.
+   Abra um Pull Request.
 
-5. **Cada conclusão de testes é gerado uma evidência**:
-   - A cada execução do teste, ao final, é gerado uma evidência pelo Cypress para assim certificar de que o comportamento é o esperado, afim de garantir a qualidade do teste.
+- Contato
+   Caso tenha dúvidas ou sugestões, entre em contato:
 
-   
-## Próximos Passos
+Autor: Leonardo Gutierrez
 
-- Corrigir as observações encontradas durante os testes.
-- Realizar novos testes para garantir que as correções foram eficazes.
+Nota: Este projeto é apenas para fins de aprendizado e demonstração de automação de testes.
