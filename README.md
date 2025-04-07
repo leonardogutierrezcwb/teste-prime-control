@@ -54,9 +54,7 @@ Antes de executar os testes, certifique-se de que sua máquina possui os seguint
    ```
    - tests/: Diretório que contém os arquivos de teste.
    - Executar um teste específico
-   - ```
    Para executar um teste específico, use o nome do arquivo .robot:
-   
    ```
    robot -d results tests/CT001_Criar_Conta.robot
 7. Relatórios e Logs
